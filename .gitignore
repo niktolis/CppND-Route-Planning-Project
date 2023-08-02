@@ -7,4 +7,5 @@ test.cpp
 build/
 bin/
 lib/
+sysinfo.log
 .github/**
