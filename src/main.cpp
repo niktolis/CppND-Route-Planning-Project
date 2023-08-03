@@ -9,6 +9,10 @@
 #include <string>
 #include <vector>
 
+// Project Rubric Defined limits for the coordinates
+#define MIN_COORD_VALUE 0.0f
+#define MAX_COORD_VALUE 100.0f
+
 using namespace std::experimental;
 
 static std::optional<std::vector<std::byte>> ReadFile(const std::string &path) {
@@ -35,14 +39,13 @@ static std::vector<float> ParseLine(const std::string &line) {
   std::vector<float> row;
 
   while (sline >> x >> c >> y && c == ',') {
-    if ((-180.0 <= x <= 180.0) && (-90.0 <= y <= 90.0)) {
+    if ((MIN_COORD_VALUE <= x <= MAX_COORD_VALUE) &&
+        (MIN_COORD_VALUE <= y <= MAX_COORD_VALUE)) {
       row.push_back(x);
       row.push_back(y);
-      return row;
-    } else {
-      std::cerr << "No Valid coordinated were found!\n";
     }
   }
+  assert(row.size() == 2);
   return row;
 }
 int main(int argc, const char **argv) {
@@ -55,7 +58,7 @@ int main(int argc, const char **argv) {
     std::cout << "To specify a map file use the following format: "
               << std::endl;
     std::cout << "Usage: [executable] [-f filename.osm]" << std::endl;
-    osm_data_file = "../map.osm"; // Change due to build config
+    osm_data_file = "./map.osm"; // Change due to build config
   }
 
   std::vector<std::byte> osm_data;
@@ -76,10 +79,10 @@ int main(int argc, const char **argv) {
 
   std::string start_input, end_input;
 
-  std::cout << "Give start point coordinates (x , y)->(1.0749 , 35.4090)\n";
+  std::cout << "Give start point coordinates x,y. (e.g. 1.0749,35.4090)\n";
   getline(std::cin, start_input);
   std::vector<float> start = ParseLine(start_input);
-  std::cout << "Give end point coordinates (x , y)->(1.0749, 35.43333)\n";
+  std::cout << "Give end point coordinates x,y. (e.g. 1.0749,35.43333)\n";
   getline(std::cin, end_input);
   std::vector<float> end = ParseLine(end_input);
 
