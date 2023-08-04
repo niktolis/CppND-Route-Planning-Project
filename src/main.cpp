@@ -73,10 +73,8 @@ int main(int argc, const char **argv) {
       osm_data = std::move(*data);
   }
 
-  // TODO 1: Declare floats `start_x`, `start_y`, `end_x`, and `end_y` and get
-  // user input for these values using std::cin. Pass the user input to the
-  // RoutePlanner object below in place of 10, 10, 90, 90.
-
+  // User Input Interface for start and end points on the map
+  //
   std::string start_input, end_input;
 
   std::cout << "Give start point coordinates x,y. (e.g. 1.0749,35.4090)\n";
@@ -85,18 +83,6 @@ int main(int argc, const char **argv) {
   std::cout << "Give end point coordinates x,y. (e.g. 1.0749,35.43333)\n";
   getline(std::cin, end_input);
   std::vector<float> end = ParseLine(end_input);
-
-  // TODO: Remove test before submitting
-  std::cout << "The start coordinates are:\n";
-  for (float i : start) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
-  std::cout << "The end coordinates are:\n";
-  for (float i : end) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
 
   // Build Model.
   RouteModel model{osm_data};
