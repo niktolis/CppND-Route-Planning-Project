@@ -5,10 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Add the path of the cmake files to the CMAKE_MODULE_PATH
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
+set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH};${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/P0267_RefImpl" CACHE PATH "Prefix path")
 
 # Add necessary flags for IO2D lib using X11 config
-SET(GXX_COVERAGE_COMPILE_FLAGS "-isystem/opt/homebrew/include -isystem/opt/local/include -isystem/usr/local/include")
-SET(GXX_COVERAGE_LINK_FLAGS    "-L/opt/homebrew/lib -L/opt/local/lib -L/usr/local/lib")
+# SET(GXX_COVERAGE_COMPILE_FLAGS "-isystem/opt/homebrew/include -isystem/opt/local/include -isystem/usr/local/include")
+# SET(GXX_COVERAGE_LINK_FLAGS    "-L/opt/homebrew/lib -L/opt/local/lib -L/usr/local/lib")
 
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GXX_COVERAGE_COMPILE_FLAGS}")
 SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GXX_COVERAGE_LINK_FLAGS}")
