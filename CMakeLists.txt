@@ -5,6 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 # Add the path of the cmake files to the CMAKE_MODULE_PATH
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
+
+# Add prefix path for the library derived by I02D
 set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH};${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/P0267_RefImpl" CACHE PATH "Prefix path")
 
 # Add necessary flags for IO2D lib using X11 config
