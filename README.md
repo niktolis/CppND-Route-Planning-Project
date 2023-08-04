@@ -53,7 +53,7 @@ cmake -G "Xcode" -DIO2D_DEFAULT=COREGRAPHICS_MAC ../.
 open io2d.xcodeproj
 ```
 
-In CMake configuration on the forked repo has been altered and the library is created in the `./shared` directory. Without choosing a specific folder Xcode and CMake have access the default one is `/usr/loca/` where it required root privileges and the install fails.
+The CMake configuration on the forked repo has been modified and the library is created in the `./share` directory. Without choosing a specific folder the default one is `/usr/local/` where it requires root privileges and the `install` target fails by default. The best option instead of changing ownership of the `/usr/local` is to define a different path where Xcode can execute the installation.
 
 You can use the target `install` and the library will be built and deployed in the shared folder.
 
@@ -88,7 +88,7 @@ cmake -G "Xcode" ../.
 open io2d.xcodeproj
 ```
 
-In the `CMakeLists.txt` add the following lines on both the IO2D project and the root project folder before the definition of the project name:
+In the `CMakeLists.txt` add the following lines on **both** the IO2D project and the root project folder before the definition of the project name:
 
 ```cmake
 # Add necessary flags for IO2D lib using X11 config
