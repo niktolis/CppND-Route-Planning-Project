@@ -3,8 +3,7 @@
         {
             "name": "Mac",
             "includePath": [
-                "/usr/local/include/io2d/*",
-                "/opt/homebrew/include/**",
+                "${workspaceFolder}/thirdparty/P0267_RefImpl/include/io2d",
                 "${workspaceFolder}/thirdparty/googletest",
                 "${workspaceFolder}/thirdparty/pugixml"
             ],

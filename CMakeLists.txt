@@ -7,14 +7,13 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
 
 # Add prefix path for the library derived by I02D
-set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH};${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/P0267_RefImpl" CACHE PATH "Prefix path")
+set(CMAKE_PREFIX_PATH "${CMAKE_PREFIX_PATH};${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/P0267_RefImpl/share" CACHE PATH "Prefix path")
 
 # Add necessary flags for IO2D lib using X11 config
 # SET(GXX_COVERAGE_COMPILE_FLAGS "-isystem/opt/homebrew/include -isystem/opt/local/include -isystem/usr/local/include")
 # SET(GXX_COVERAGE_LINK_FLAGS    "-L/opt/homebrew/lib -L/opt/local/lib -L/usr/local/lib")
-
-SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GXX_COVERAGE_COMPILE_FLAGS}")
-SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GXX_COVERAGE_LINK_FLAGS}")
+#SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GXX_COVERAGE_COMPILE_FLAGS}")
+#SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GXX_COVERAGE_LINK_FLAGS}")
 
 project(OSM_A_star_search)
 
