@@ -9,3 +9,4 @@ bin/
 lib/
 sysinfo.log
 .github/**
+*.DS_Store
