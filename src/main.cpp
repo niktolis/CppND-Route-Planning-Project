@@ -39,10 +39,12 @@ static std::vector<float> ParseLine(const std::string &line) {
   std::vector<float> row;
 
   while (sline >> x >> c >> y && c == ',') {
-    if ((MIN_COORD_VALUE <= x <= MAX_COORD_VALUE) &&
-        (MIN_COORD_VALUE <= y <= MAX_COORD_VALUE)) {
+    if ((MIN_COORD_VALUE <= x && x <= MAX_COORD_VALUE) &&
+        (MIN_COORD_VALUE <= y && y <= MAX_COORD_VALUE)) {
       row.push_back(x);
       row.push_back(y);
+    } else {
+      std::cerr << "Error: The coordinates are out of the defined limits!\n";
     }
   }
   assert(row.size() == 2);
@@ -77,10 +79,12 @@ int main(int argc, const char **argv) {
   //
   std::string start_input, end_input;
 
-  std::cout << "Give start point coordinates x,y. (e.g. 1.0749,35.4090)\n";
+  std::cout << "Give start point coordinates x,y. [0<=x,y<=100](e.g. "
+               "1.0749,35.4090)\n";
   getline(std::cin, start_input);
   std::vector<float> start = ParseLine(start_input);
-  std::cout << "Give end point coordinates x,y. (e.g. 1.0749,35.43333)\n";
+  std::cout << "Give end point coordinates x,y. [0<=x,y<=100](e.g. "
+               "1.0749,35.43333)\n";
   getline(std::cin, end_input);
   std::vector<float> end = ParseLine(end_input);
 
