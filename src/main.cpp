@@ -58,7 +58,7 @@ int main(int argc, const char **argv) {
     std::cout << "To specify a map file use the following format: "
               << std::endl;
     std::cout << "Usage: [executable] [-f filename.osm]" << std::endl;
-    osm_data_file = "./map.osm"; // Change due to build config
+    osm_data_file = "../map.osm"; // Change due to build config
   }
 
   std::vector<std::byte> osm_data;

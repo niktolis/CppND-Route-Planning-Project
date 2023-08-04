@@ -8,6 +8,7 @@
             // Resolved by CMake Tools:
             "program": "${command:cmake.launchTargetPath}",
             "args": [],
+            "cwd": "${workspaceFolder}/build",
             "stopOnEntry": false,
             // "relativePathBase": "${workspaceFolder}",
             "initCommands": [
